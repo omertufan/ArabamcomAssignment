@@ -10,7 +10,7 @@ Geliştirme ortamınızı kurmak için aşağıdaki adımları izlemelisiniz:
 
 1-) Çalışmadan Önce Docker Masaüstünü Başlatın
 
-2-) Depoyu klonlayın veya indirin
+2-) Repoyu klonlayın veya indirin
 
 3-) docker-compose.yml dosyalarının bulunduğu kök dizinde aşağıdaki komutu çalıştırın:
 
