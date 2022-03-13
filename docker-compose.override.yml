@@ -1,0 +1,31 @@
+version: '3.4'
+
+services:
+  advertdb:
+    container_name: advertdb
+    restart: always
+    ports:
+        - "27017:27017"
+    volumes:
+        - mongo_data:/data/db
+
+
+  rabbitmq:
+    container_name: rabbitmq
+    restart: always
+    ports:
+        - "5672:5672"
+        - "15672:15672"
+
+
+  arabamcomassignment:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "DatabaseSettings:ConnectionString=mongodb://advertdb:27017"
+      - "RabbitMQSettings:HostAddress=amqp://guest:guest@rabbitmq:5672"
+    depends_on:
+      - advertdb
+      - rabbitmq
+    restart: always
+    ports:
+      - "8000:80"
